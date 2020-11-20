@@ -1,3 +1,5 @@
+// npm install youtube-dl
+
 const youtubedl = require('youtube-dl')
 const fs = require('fs')
 const output = 'myvideo.mp4'
