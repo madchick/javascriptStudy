@@ -10,7 +10,7 @@ if (fs.existsSync(output)) {
   downloaded = fs.statSync(output).size
 }
 
-const video = youtubedl('https://www.youtube.com/watch?v=-OTc0Ki7Sv0',
+const video = youtubedl('https://www.youtube.com/watch?v=HQr-CnETp0c',
 
   // Optional arguments passed to youtube-dl.
   ['--format=18'],
