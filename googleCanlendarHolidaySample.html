@@ -1,0 +1,42 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+<body>
+  <pre id="output"></pre>
+</body>
+
+<script type="text/javascript">
+
+  $("#output").html("Loading...");
+  var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/ja.japanese%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDfKWdpeRjC-731P6PQkR8DsKuuVewHpqc';
+ 
+  $.getJSON(calendarUrl)
+    .success(function(data) {
+    	// console.log(data);
+
+      let holidayList = new Array();
+      for (item in data.items) {
+        let holiday = new Array();
+        holiday.push(data.items[item].summary);
+        holiday.push(data.items[item].start.date);
+        holidayList.push(holiday);
+      }
+
+      holidayList.sort((a,b) => {
+        if(a[1]>b[1]) return 1;
+        if(a[1]<b[1]) return -1;
+        if(a[1]===b[1]) return 0;
+      });
+
+      $("#output").empty();
+      for( let index in holidayList ) {
+        $("#output").append(
+          "<hr><h3>" + holidayList[index][0] + "<h3>" +
+          "<h4>" + holidayList[index][1] + "<h4>"
+        );
+      }
+    })
+    .error(function(error) {
+      $("#output").html("An error occurred.");
+    })
+
+</script>
