@@ -1,13 +1,137 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>World Holidays</title>
+    <meta name="description" content="Holidays list for some countries" />
+    
+    <meta property="og:title" content="World Holidays"/>
+    <meta property="og:description" content="Holidays list for some countries"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ1TJDT1LZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XZ1TJDT1LZ');
+</script>
+
+<script data-ad-client="ca-pub-7013471822182533" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
  
 <body>
-  <pre id="output"></pre>
+
+<div><center>
+<ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-B99ZtyabICKFuXEM" 
+ data-ad-width   = "320" 
+ data-ad-height  = "50"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+</center></div>
+
+</br>
+
+<div><center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7013471822182533"
+     crossorigin="anonymous"></script>
+<!-- 펀리틀띵 - 상단 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7013471822182533"
+     data-ad-slot="3212808584"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center></div>
+
+<br/><br/>
+
+<center>
+  <select id="selectCountry">
+    <option value="ko.south_korea">South Korea</option>
+    <option value="en.usa">USA</option>
+    <option value="zh.china">China</option>
+    <option value="ja.japanese">Japan</option>
+    <option value="en.hong_kong">Hong Kong</option>
+    <option value="en.vietnamese">Vietnam</option>
+    <option value="en.singapore">Singapore</option>
+    <option value="en.philippines">Philippin</option>
+    <option value="en.malaysia">Malaysia</option>
+    <option value="en.uk">UK</option>
+    <option value="fr.french">France</option>
+    <option value="de.german">Germany</option>
+    <option value="en.australian">Australia</option>
+    <option value="ru.russian">Russia</option>
+  </select>
+<pre id="output"></pre>
+</center>
+
+<div><center>
+<ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-zuNkS6SRfJWiGHkE" 
+ data-ad-width   = "300" 
+ data-ad-height  = "250"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+</center></div>
+
+</br></br>     
+
+<center>
+<div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7013471822182533"
+     crossorigin="anonymous"></script>
+<!-- 펀리틀띵 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7013471822182533"
+     data-ad-slot="4071307724"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</center>
+
+</br></br>
+
+<div><center>
+<script src="https://ads-partners.coupang.com/g.js"></script> <script> new PartnersCoupang.G({"id":464472,"trackingCode":"AF6258331","subId":null,"template":"carousel","width":"680","height":"140"}); </script>
+</center></div>
+          
+</br></br>
+
+<div><center>
+<ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-XSIruVekiKNd6ne6" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+</center></div>
+
+</br></br>
+
 </body>
+</html>
 
 <script type="text/javascript">
-
+$("#selectCountry").change(function(e) {
   $("#output").html("Loading...");
-  var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/ja.japanese%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDfKWdpeRjC-731P6PQkR8DsKuuVewHpqc';
+  var country = $("#selectCountry").val();
+  var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + country 
+                  + '%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDfKWdpeRjC-731P6PQkR8DsKuuVewHpqc&orderBy=startTime&singleEvents=true&timeMin=2022-01-01T00:00:00Z&timeMax=2023-01-01T00:00:00Z';
  
   $.getJSON(calendarUrl)
     .success(function(data) {
@@ -38,5 +162,6 @@
     .error(function(error) {
       $("#output").html("An error occurred.");
     })
-
+});
+$("#selectCountry").trigger("change");
 </script>
